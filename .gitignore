@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+.idea
+.DS_Store
+.editorconfig
+build
+public/dist
+public/scss/includes/sprites/
+public/images/_uncompress/
+public/images/animations/frames/
+views/release
+logs/
+public/**/*manifest.json
