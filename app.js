@@ -1,13 +1,15 @@
 const fs = require('fs');
-const Koa = require('koa')
-const app = new Koa()
-const views = require('koa-views')
-const json = require('koa-json')
-const onerror = require('koa-onerror')
-const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
+const Koa = require('koa');
+const app = new Koa();
+const views = require('koa-views');
+const json = require('koa-json');
+const onerror = require('koa-onerror');
+const bodyparser = require('koa-bodyparser');
+const logger = require('koa-logger');
+const staticSrc = require('koa-static');
+const jsonp = require('koa-jsonp');
 
-const router = require('./routes/init')
+const router = require('./routes/init');
 
 // error handler
 onerror(app)
@@ -17,9 +19,10 @@ onerror(app)
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
-app.use(json())
-app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(json());
+app.use(jsonp());//jsonp中间件
+app.use(logger());
+app.use(staticSrc(__dirname + '/public'))
 
 app.use(views(__dirname + '/views', {
   extension: 'ejs'
