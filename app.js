@@ -19,7 +19,8 @@ onerror(app)
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
-app.use(json());
+//使用json()或者jsonp()，二者选择其一
+/*app.use(json());*/
 app.use(jsonp());//jsonp中间件
 app.use(logger());
 app.use(staticSrc(__dirname + '/public'))
