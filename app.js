@@ -23,7 +23,7 @@ app.use(bodyparser({
 /*app.use(json());*/
 app.use(jsonp());//jsonp中间件
 app.use(logger());
-app.use(staticSrc(__dirname + '/public'))
+app.use(staticSrc(__dirname + '/public/dist'))
 
 app.use(views(__dirname + '/views', {
   extension: 'ejs'
